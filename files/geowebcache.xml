@@ -1,0 +1,3 @@
+<Context displayName="geowebcache"
+         docBase="/usr/share/opengeo/geowebcache"
+         path="/geowebcache"/>
