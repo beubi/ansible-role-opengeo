@@ -1,0 +1,9 @@
+- hosts: all
+  sudo: yes
+  tasks:
+    - name: Import the Boundless GPG key
+      apt_key: url=https://apt.boundlessgeo.com/gpg.key 
+
+    - name: Add the OpenGeo Suite to the repositories list
+      apt_repository: repo='deb https://apt.boundlessgeo.com/suite/latest/ubuntu/ trusty main' state=present
+
