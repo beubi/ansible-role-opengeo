@@ -7,3 +7,15 @@
     - name: Add the OpenGeo Suite to the repositories list
       apt_repository: repo='deb https://apt.boundlessgeo.com/suite/latest/ubuntu/ trusty main' state=present
 
+    - name: Update the server
+      apt: update_cache=yes
+
+    - name: Install OpenGeo Server
+      apt: name=opengeo
+
+    - name: Start Tomcat
+      service: name=tomcat7 state=started
+
+    - name: Start PostgreSQL
+      service: name=postgresql state=started
+
