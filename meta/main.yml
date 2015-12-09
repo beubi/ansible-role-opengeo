@@ -1,0 +1,6 @@
+galaxy_info:
+  author: Rui Gonçalves
+  description: Role to install the OpenGeo (4.7.1) suite
+  company: Ubiprism, Lda. (beubi)
+  license: MIT
+  min_ansible_version: 1.9
