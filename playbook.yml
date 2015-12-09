@@ -7,11 +7,25 @@
     - name: Add the OpenGeo Suite to the repositories list
       apt_repository: repo='deb https://apt.boundlessgeo.com/suite/latest/ubuntu/ trusty main' state=present
 
-    - name: Update the server
+    - name: Update apt
       apt: update_cache=yes
 
-    - name: Install OpenGeo Server
+    - name: Install OpenGeo package through apt
       apt: name=opengeo
+
+    - name: Copy the configuration files (dashboard.xml, docs.xml, geoserver.xml, geoexplorer.xml and geowebcache,xml)
+      copy: src=files/{{ item }}
+            dest=/etc/tomcat7/Catalina/localhost/
+            owner=root
+            group=tomcat7
+            mode=0644
+            force=no
+      with_items:
+        - dashboard.xml
+        - docs.xml
+        - geoserver.xml
+        - geoexplorer.xml
+        - geowebcache.xml
 
     - name: Start Tomcat
       service: name=tomcat7 state=started
