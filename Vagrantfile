@@ -3,6 +3,6 @@
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "beubi/trusty64"
+  config.vm.box = "ubuntu/trusty64"
 
 end
